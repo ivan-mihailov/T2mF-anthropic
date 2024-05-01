@@ -52,7 +52,7 @@ def clear_chat():
         del st.session_state[key]
 
 
-@st.cache_data
+@st.cache_data(ttl=3600)
 def save_files(uploaded_files):
     uploaded_file_names = []
     file_paths = []
@@ -79,7 +79,7 @@ def save_files(uploaded_files):
 
 
 # display come back
-@st.cache_data
+@st.cache_data(ttl=3600)
 def displayPDF(uploaded_files):
     for uploaded_file in uploaded_files:
         # Read file as bytes:
@@ -90,7 +90,7 @@ def displayPDF(uploaded_files):
         st.markdown(pdf_display, unsafe_allow_html=True)
 
 
-@st.cache_data
+@st.cache_data(ttl=3600)
 def pdf_reader(file_paths):
     plain_text_files_list = []
 
